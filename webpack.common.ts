@@ -36,7 +36,7 @@ const config: webpack.Configuration = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: ["postcss-import", "tailwindcss"],
+                plugins: ["postcss-import", "tailwindcss", "autoprefixer"],
               },
             },
           },
