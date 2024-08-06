@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "UAILab Extension",
+  "description": "Uma extensão para simplificar o dia a dia de trabalho com o PJE.",
+  "version": "1.0",
+  "action": {
+    "default_icon": {
+      "16": "assets/icons/logo16.png",
+      "32": "assets/icons/logo32.png"
+    },
+    "default_title": "UAILab Ementas",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "assets/icons/logo48.png",
+    "128": "assets/icons/logo128.png"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["modelos/*", "assets/*"],
+      "matches": ["https://pje.tjmg.jus.br/*"]
+    }
+  ],
+  "permissions": ["declarativeContent", "scripting", "storage", "tabs"],
+  "host_permissions": ["https://pje.tjmg.jus.br/*"],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["components/modal.js"],
+      "matches": ["https://pje.tjmg.jus.br/*"],
+      "include_globs": [
+        "https://pje.tjmg.jus.br/pje/Processo/ConsultaProcesso/Detalhe/listAutosDigitais.seam?idProcesso=*&idTaskInstance=*"
+      ]
+    },
+    {
+      "js": ["components/button.js"],
+      "matches": ["https://pje.tjmg.jus.br/*"],
+      "include_globs": [
+        "https://pje.tjmg.jus.br/pje/ng2/dev.seam#/painel-usuario-interno"
+      ]
+    }
+  ]
+}
