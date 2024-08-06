@@ -25,18 +25,18 @@
   "permissions": ["declarativeContent", "scripting", "storage", "tabs"],
   "host_permissions": ["https://pje.tjmg.jus.br/*"],
   "background": {
-    "service_worker": "scripts/background.js"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "js": ["components/modal.js"],
+      "js": ["shared/components/modal.js"],
       "matches": ["https://pje.tjmg.jus.br/*"],
       "include_globs": [
         "https://pje.tjmg.jus.br/pje/Processo/ConsultaProcesso/Detalhe/listAutosDigitais.seam?idProcesso=*&idTaskInstance=*"
       ]
     },
     {
-      "js": ["components/button.js"],
+      "js": ["shared/components/button.js"],
       "matches": ["https://pje.tjmg.jus.br/*"],
       "include_globs": [
         "https://pje.tjmg.jus.br/pje/ng2/dev.seam#/painel-usuario-interno"
