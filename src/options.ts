@@ -1,4 +1,5 @@
 import './shared/styles/globals.css'
+import './shared/styles/options.css'
 
 document.addEventListener("DOMContentLoaded", () => {
   const apiKeyInput = document.getElementById("apiKey") as HTMLInputElement
